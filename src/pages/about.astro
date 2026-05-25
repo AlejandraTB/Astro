@@ -1,0 +1,61 @@
+---
+import BaseLayouts from "../layouts/BaseLayouts.astro";
+const pageTitle = "Sobre mi"
+
+const indentfy = {
+	fristName: "Paula",
+	conuntry: "Colombia",
+	occupation: "Codificadora",
+	hobbies:["forografía", "observación de aves"],
+}
+
+const skills = ["HTML", "CSS","JavaScript","Astro","React"]
+
+const happy = true;
+const finished  = false;
+const goal = 3;
+const curses = ["Aplicacion de la electronica en proyectos de ciencia y tecnologia", "Atención al cliente", "Programación de software"]
+const skillColor = "crimson";
+const fontWeight = "bold"
+const textCase = "uppercase"
+---
+<BaseLayouts pageTitle={pageTitle}>
+				<style define:vars={{ skillColor, fontWeight ,textCase}}>
+						h1{
+							margin-top: 28px;
+							color: purple;
+							font-size: 4rem;
+				
+						}
+						.skill {
+							color: var(--skillColor);
+							font-weight: var(--fontWeight);
+							text-transform: var(--textCase);
+						}
+				</style>
+
+		<h1>{pageTitle}</h1>
+        <h2>...¡y mi nuevo sitio Astro!</h2>
+
+        <p>Estoy trabajando en el tutorial introductorio de Astro. Esta es la segunda página de mi sitio web, ¡y es la primera que he contruido yo mismo!</p>
+        <p>Este sitio se ira actualizando a medida que vaya aprendiendo nuevas cosas.</p>
+		<h3>Algunos datos sobre mi:</h3>
+		<ul>
+			<li>Me llamo {indentfy.fristName}</li>
+			<li>Vivo en {indentfy.conuntry} y trabajo como {indentfy.occupation}</li>
+			<li>Mis aficiones son: {indentfy.hobbies[0]} y {indentfy.hobbies[1]}</li>
+		</ul>
+		<p>Mis habilidades tecnicas son: </p>
+		<ul>
+			{skills.map((skill) => <li class="skill">{skill}</li>)}
+		</ul>
+
+		{happy && <p>¡Estoy feliz de aprender Astro!</p> }
+		{finished && <p>¡He terminado el curo de Astro!</p>}
+		{goal === 3 ? <p>Mi objetivo es terminar en 3 días.</p> : <p>Mi objetivo no son 3 días</p>}
+		
+		<ul>
+			{curses.map((cursos) => <li>{cursos}</li>)}
+		</ul>
+
+</BaseLayouts>

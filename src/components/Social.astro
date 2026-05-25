@@ -1,0 +1,14 @@
+---
+const { platfrom , username} =  Astro.props
+---
+
+<style>
+    a{
+        padding: 0.5rem 1rem;
+        color: white;
+        background-color: #4c1d95;
+        text-decoration: none;
+        border-radius: 2.5rem;
+    }
+</style>
+<a href={`https:www.${platfrom}.com/${username}`} target="_blank">{platfrom}</a>
